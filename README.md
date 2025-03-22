@@ -1,4 +1,7 @@
 # sharun
+
+![image](https://github.com/user-attachments/assets/74d9f677-dc01-49a2-84af-955e2a86e3dd)
+
 Run dynamically linked ELF binaries everywhere (musl and glibc are supported).
 
 ![sharun](img/sharun.gif)
