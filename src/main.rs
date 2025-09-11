@@ -4,7 +4,7 @@ use std::{
     path::{Path, PathBuf},
     ffi::{CString, OsStr},
     process::{Command, exit},
-    fs::{File, write, read_to_string},
+    fs::{self, File, write, read_to_string},
     os::unix::{fs::{MetadataExt, PermissionsExt, symlink}, process::CommandExt},
     io::{Read, Result, Error, Write, BufRead, BufReader, ErrorKind::{InvalidData, NotFound}}
 };
