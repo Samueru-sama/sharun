@@ -629,8 +629,14 @@ fn main() {
         if !link_name.is_empty() {
             let link_path = PathBuf::from("/tmp").join(&link_name);
             if link_path.exists() {
-                if let Err(e) = std::fs::remove_file(&link_path) {
-                    eprintln!("Failed to remove existing file at {}: {}", link_path.display(), e);
+                if link_path.is_dir() {
+                    if let Err(e) = fs::remove_dir_all(&link_path) {
+                        eprintln!("Failed to remove existing directory at {}: {}", link_path.display(), e);
+                    }
+                } else {
+                    if let Err(e) = fs::remove_file(&link_path) {
+                        eprintln!("Failed to remove existing file at {}: {}", link_path.display(), e);
+                    }
                 }
             }
             if let Err(e) = symlink(target_path, &link_path) {
